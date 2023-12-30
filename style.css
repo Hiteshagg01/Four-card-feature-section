@@ -1,0 +1,143 @@
+:root {
+    --ff-primary: "Poppins", sans-serif;
+
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-bold: 600;
+
+    --fs-sm: 0.85rem;
+    --fs-md: 1.25rem;
+    --fs-lg: 2.25rem;
+
+    --red: hsl(0, 78%, 62%);
+    --cyan: hsl(180, 62%, 55%);
+    --orange: hsl(34, 97%, 64%);
+    --blue: hsl(212, 86%, 64%);
+
+    --very-dark-blue: hsl(234, 12%, 34%);
+    --grayish-blue: hsl(229, 6%, 66%);
+    --very-light-gray: hsl(0, 0%, 98%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--ff-primary);
+    color: var(--grayish-blue);
+    font-weight: var(--fw-light);
+
+    background-color: var(--very-light-gray);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+    color: var(--very-dark-blue);
+}
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+.wrapper {
+    max-width: 1110px;
+    margin: auto;
+}
+.wrapper--narrow {
+    max-width: 555px;
+    margin: auto;
+    padding: 2rem;
+
+    text-align: center;
+}
+.header__title {
+    font-size: 1.6rem;
+}
+.header__title span {
+    font-weight: var(--fw-light);
+}
+.layout-grid {
+    margin-block: 2rem 2rem;
+    padding: 2rem;
+    display: grid;
+
+    grid-auto-columns: 1fr;
+    gap: 2rem;
+}
+
+.card {
+    --br: 4px;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: var(--br);
+    border-top: var(--br) solid;
+    box-shadow: 0 1rem 1.5rem -0.5rem rgb(0 0 150 / 0.2);
+}
+.card__title {
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+}
+.card__desc {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-light);
+}
+.card img {
+    margin-left: auto;
+    margin-top: 2.5rem;
+}
+.card:nth-child(1) {
+    border-color: var(--cyan);
+}
+
+.card:nth-child(2) {
+    border-color: var(--red);
+}
+
+.card:nth-child(3) {
+    border-color: var(--orange);
+}
+
+.card:nth-child(4) {
+    border-color: var(--blue);
+}
+
+@media (min-width: 376px) {
+    .header__title {
+        font-size: var(--fs-lg);
+    }
+    .header__title > span {
+        font-weight: var(--fw-light);
+    }
+    .header__desc {
+        font-size: var(--fs-sm);
+    }
+
+    .layout-grid {
+        grid-template-areas:
+            "... two ..."
+            "one two four"
+            "one three four"
+            "... three ... ";
+    }
+    .card:nth-child(1) {
+        grid-area: one;
+    }
+    .card:nth-child(2) {
+        grid-area: two;
+    }
+    .card:nth-child(3) {
+        grid-area: three;
+    }
+    .card:nth-child(4) {
+        grid-area: four;
+    }
+}
